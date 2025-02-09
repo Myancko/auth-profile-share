@@ -1,0 +1,324 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "user": "teste 1",
+      "description": "Voluptatem molestia",
+      "email": "adsadsadad",
+      "password": "dsadsad",
+      "data_de_aniversario": "sadasadsasad",
+      "foto_de_perfil": "/images/user-data/plank-moan.jpeg",
+      "data_de_criacao_do_registro": "2/3/2025",
+      "data_de_atualizacao_do_registro": "2/9/2025",
+      "data_de_delecao_do_registro": "none",
+      "dados_do_endereco_completo": {
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "157",
+        "estado": "",
+        "cep": "",
+        "pais": "sadsadsada"
+      }
+    },
+    {
+      "id": "2",
+      "user": "Nulla Eiusmod",
+      "description": "Ex velit velit cupidatat in sint aliqua ex eu cillum. Consequat pariatur exercitation excepteur cupidatat. Occaecat consequat voluptate cillum minim. Lorem Lorem tempor minim deserunt amet commodo voluptate dolor adipisicing laboris et.",
+      "email": "testeOgmail.com",
+      "password": "senhao",
+      "data_de_aniversario": "28/8/2018",
+      "foto_de_perfil": "/icons/yu-qing-smille-ai-upscaled.png",
+      "data_de_criacao_do_registro": "",
+      "data_de_atualizacao_do_registro": "2/2/2025",
+      "data_de_delecao_do_registro": "none",
+      "dados_do_endereco_completo": {
+        "rua": "Corpo na esquina",
+        "numero": "762x39",
+        "complemento": "Se passar das 6pm vem no outro dia se n vira saudade",
+        "bairro": "Six Feet Under",
+        "cidade": "Picanha",
+        "estado": "7 Mares",
+        "cep": "40028922",
+        "pais": "Gozil"
+      }
+    },
+    {
+      "id": "3",
+      "user": "dsadsadasds",
+      "description": "",
+      "email": "adsadsadad",
+      "password": "dsadsad",
+      "data_de_aniversario": "sadasadsasad",
+      "foto_de_perfil": "/icons/yu-qing-smille-ai-upscaled.png",
+      "data_de_criacao_do_registro": "2/3/2025",
+      "data_de_atualizacao_do_registro": "2/3/2025",
+      "data_de_delecao_do_registro": "",
+      "dados_do_endereco_completo": {
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": "",
+        "cep": "",
+        "pais": ""
+      }
+    },
+    {
+      "id": "4",
+      "user": "user4",
+      "description": "Test user 4",
+      "email": "user4@example.com",
+      "password": "password4",
+      "data_de_aniversario": "01/01/1990",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "2/3/2025",
+      "data_de_atualizacao_do_registro": "2/3/2025",
+      "data_de_delecao_do_registro": "",
+      "dados_do_endereco_completo": {
+        "rua": "Rua 4",
+        "numero": "44",
+        "complemento": "Apto 4",
+        "bairro": "Bairro 4",
+        "cidade": "Cidade 4",
+        "estado": "Estado 4",
+        "cep": "44444-444",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "id": "5",
+      "user": "user5",
+      "description": "Test user 5",
+      "email": "user5@example.com",
+      "password": "password5",
+      "data_de_aniversario": "02/02/1991",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "2/3/2025",
+      "data_de_atualizacao_do_registro": "2/3/2025",
+      "data_de_delecao_do_registro": "",
+      "dados_do_endereco_completo": {
+        "rua": "Rua 5",
+        "numero": "55",
+        "complemento": "Apto 5",
+        "bairro": "Bairro 5",
+        "cidade": "Cidade 5",
+        "estado": "Estado 5",
+        "cep": "55555-555",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "id": "6",
+      "user": "user6",
+      "description": "Test user 6",
+      "email": "user6@example.com",
+      "password": "password6",
+      "data_de_aniversario": "03/03/1992",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "2/3/2025",
+      "data_de_atualizacao_do_registro": "2/3/2025",
+      "data_de_delecao_do_registro": "",
+      "dados_do_endereco_completo": {
+        "rua": "Rua 6",
+        "numero": "66",
+        "complemento": "Apto 6",
+        "bairro": "Bairro 6",
+        "cidade": "Cidade 6",
+        "estado": "Estado 6",
+        "cep": "66666-666",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "id": "7",
+      "user": "user7",
+      "description": "Test user 7",
+      "email": "user7@example.com",
+      "password": "password7",
+      "data_de_aniversario": "04/04/1993",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "2/3/2025",
+      "data_de_atualizacao_do_registro": "2/3/2025",
+      "data_de_delecao_do_registro": "",
+      "dados_do_endereco_completo": {
+        "rua": "Rua 7",
+        "numero": "77",
+        "complemento": "Apto 7",
+        "bairro": "Bairro 7",
+        "cidade": "Cidade 7",
+        "estado": "Estado 7",
+        "cep": "77777-777",
+        "pais": "Brasil"
+      }
+    }
+  ],
+  "games": [
+    {
+      "id": "1",
+      "photo": "/images/game-data/capsule_616x353.jpg",
+      "name": "NEKOPARA Vol. 1"
+    },
+    {
+      "id": "2",
+      "photo": "/images/game-data/nkv2.jpg",
+      "name": "NEKOPARA Vol. 2"
+    },
+    {
+      "id": "3",
+      "photo": "/images/game-data/Neko-Works-Nekopara-Vol.-3-Keyart.jpg",
+      "name": "NEKOPARA Vol. 3"
+    },
+    {
+      "id": "4",
+      "photo": "/images/game-data/nkv4.jpg",
+      "name": "NEKOPARA Vol. 4"
+    },
+    {
+      "id": "5",
+      "photo": "/images/game-data/The-Witcher-3.webp",
+      "name": "The Witcher 3"
+    },
+    {
+      "id": "6",
+      "photo": "/images/game-data/genshin-inazuma.jpeg",
+      "name": "Genshin Impact"
+    }
+  ],
+  "displays": [
+    {
+      "id": "1",
+      "owner": "1",
+      "name": "aaaaa sadsad",
+      "games": [
+        "2"
+      ]
+    },
+    {
+      "id": "2",
+      "owner": "1",
+      "name": "Platinados 2",
+      "games": [
+        "4",
+        "3",
+        "2"
+      ]
+    },
+    {
+      "id": "3",
+      "owner": "1",
+      "name": "teste",
+      "games": [
+        "4",
+        "2",
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "4",
+      "games": [
+        "4",
+        "2"
+      ]
+    },
+    {
+      "id": "5",
+      "games": [
+        "2",
+        "3"
+      ],
+      "name": "teste"
+    },
+    {
+      "id": "5",
+      "name": "teste",
+      "owner": "1",
+      "games": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "tes",
+      "owner": "1",
+      "games": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "teste",
+      "owner": "1",
+      "games": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "3638",
+      "name": "teste  ",
+      "owner": "1",
+      "games": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "teste dthend",
+      "owner": "1",
+      "games": [
+        "3",
+        "2",
+        "4"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "aaaa",
+      "owner": "1",
+      "games": [
+        "6",
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "teste",
+      "games": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "tt",
+      "games": [
+        "4"
+      ]
+    },
+    {
+      "id": "14",
+      "name": "tttt",
+      "owner": "2",
+      "games": [
+        "4",
+        "1"
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Socorru",
+      "owner": "1",
+      "games": [
+        "4"
+      ]
+    }
+  ]
+}

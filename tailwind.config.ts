@@ -8,6 +8,11 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+          morning: "url('/images/morning.png')",
+          evening: "url('/images/evening.jpg')",
+          night: "url('/images/night.jpg')",         
+        },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
