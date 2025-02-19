@@ -16,7 +16,7 @@ export default function ({ params }: { params: { id: string } }){
     const { id } = useParams()
     const [userCoockie, setUserCoockie]:any = useState(null);
     const [user, setUser] : any = useState(null) ;
-    const [userSections, setUserSections] = useState<{ id: string; owner: string; name: string; games: any[] }[]>([]);
+    const [userSections, setUserSections] : any = useState<{ id: string; owner: string; name: string; games: any[] }[]>([]);
     const [allGames, setGames] = useState([]);
     const [selectedImage, setSelectedImage] : any = useState(noProfilePic);
     const [userName, setUserName]: any = useState(null);
@@ -82,7 +82,7 @@ export default function ({ params }: { params: { id: string } }){
 
     const addDisplay = () => {
 
-        setUserSections(prevSections  => [...prevSections , { id: "-1", owner: id, name:"Display sem nome",games: [] }]
+        setUserSections( (prevSections: any)  => [...prevSections , { id: "-1", owner: id, name:"Display sem nome",games: [] }]
             
         );
     };
@@ -197,7 +197,7 @@ export default function ({ params }: { params: { id: string } }){
                 </div>
 
                 {
-                    userSections.map((section, index) => (
+                    userSections.map((section: any, index: any) => (
                         <GameSection key={index} display={section} allGames={allGames} post={postComponent} />
                     ))
                 }
