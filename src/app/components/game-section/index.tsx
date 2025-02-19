@@ -31,36 +31,32 @@ interface GameSectionProps {
 
 export default function GameSection({ display, allGames, post = false }: GameSectionProps) {
 
-    const userCoockie = getCookie('user');
+    const userCoockie:any = getCookie('user');
     const [showCreateGameModal, setShowCreateGameModal] = useState(false);
     const [addList, setAddList] = useState(display ? display.games : []);
     const [change, setChange] = useState(false);
     const router = useRouter()
     const [displayState, setDisplayState] = useState(display);
     const [nameForBeforeUpdate, setNameForBeforeUpdate] = useState(display.name ? display.name : "Sem Nome");
-
-    const x = 57;
-
     
-    const AddGame = (id) => (
+    const AddGame = (id:any) => (
         setAddList(addList => addList.includes(id) ? addList.filter(gameId => gameId !== id) : [...addList, id])
     )
     const addGameToSection = async () => {
-        var data = {
+        let data: { id?: string; name: string; games: string[]; owner?: string } = {
             "name": displayState.name ? displayState.name : "",
             "games": addList
-        }
+        };
 
-        switch (display.id)
+        switch (display.id){
 
-        {
             case "-1":
                 
                 const response = await axios.get("http://localhost:3000/displays")
                 display.id = response.data
 
                 data = {
-                    "id" : String(display.id.length + 1),
+                    "id"  : String(display.id.length + 1),
                     "name": display.name,
                     "owner" : JSON.parse(userCoockie).id,
                     "games": addList
@@ -140,10 +136,10 @@ export default function GameSection({ display, allGames, post = false }: GameSec
                             {
                                     displayState 
                                     ? 
-                                    displayState.games.map( (gameId, _) => (
+                                    displayState.games.map( (gameId:any, _) => (
                                         allGames.map((game, index) => (
 
-                                            game.id == gameId 
+                                            game.id == gameId  
                                             ?   
                                                 <Image key={index} className=" max-h-44  w-full rounded-md object-fill" src={game.photo} alt={"Game: " + game.title} width={1200} height={780}/> /* object-cover */
                                             :

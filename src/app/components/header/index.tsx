@@ -6,8 +6,9 @@ import { getCookie } from 'cookies-next';
 
 export default function Header() {
 
-    const value = getCookie('user');
- 
+    const cookieValue = getCookie('user');
+    const value = cookieValue ? (typeof cookieValue === "string" ? JSON.parse(cookieValue) : cookieValue) : null;
+
     return (
         <header className="h-16 flex p-2 bg-[#171a21] mb-6">
 
@@ -24,8 +25,8 @@ export default function Header() {
                 </li>
             </ul>
             
-            <Link className=" ml-auto self-center" rel="stylesheet" href={"/profile/" + JSON.parse(value).id} >
-                <Image  className="max-h-10 max-w-10 rounded-full" src={JSON.parse(value).foto_de_perfil} alt="user image" width={1200} height={780} />
+            <Link className=" ml-auto self-center" rel="stylesheet" href={"/profile/" + value.id} >
+                <Image  className="max-h-10 max-w-10 rounded-full" src={value.foto_de_perfil} alt="user image" width={1200} height={780} />
             </Link>
         </header>
     );

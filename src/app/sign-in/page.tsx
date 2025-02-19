@@ -12,14 +12,13 @@
 
     import axios from "axios";
 
-
     export default function Login() {
 
         const router = useRouter()
         const [login, setLogin] = useState('');
         const [password, setPassword] = useState('');
         const time = new Date()
-        var nameBgImage 
+        var nameBgImage : any
 
         if (time.getHours() >= 5 && time.getHours() < 12) {
             nameBgImage = morning
@@ -38,8 +37,6 @@
                 
                 for (var data of response.data)
                 {
-                    /* console.log(data)
-                    console.log(login, password, "<<<<") */
                     if (data.user == login && data.password == password)
                     {
                         console.log(data)

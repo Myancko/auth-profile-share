@@ -1,8 +1,5 @@
 "use client";
 
-import test from "node:test";
-import { useState } from "react";
-
 interface TextInputProps {
     label: string;
     data: string;
