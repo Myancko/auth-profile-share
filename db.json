@@ -153,6 +153,28 @@
         "cep": "77777-777",
         "pais": "Brasil"
       }
+    },
+    {
+      "id": "8",
+      "user": "Teste",
+      "description": "lindy",
+      "email": "testearrobagmail.com",
+      "password": "123456789",
+      "data_de_aniversario": "sadsadsad",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "2/19/2025",
+      "data_de_atualizacao_do_registro": "2/19/2025",
+      "data_de_delecao_do_registro": "none",
+      "dados_do_endereco_completo": {
+        "rua": "adsad",
+        "numero": "sads",
+        "complemento": "adsadsad",
+        "bairro": "sads",
+        "cidade": "sad",
+        "estado": "saadsad",
+        "cep": "sadsad",
+        "pais": "dsad"
+      }
     }
   ],
   "games": [
@@ -318,6 +340,35 @@
       "owner": "1",
       "games": [
         "4"
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Nomão",
+      "owner": "8",
+      "games": [
+        "1",
+        "5",
+        "4"
+      ]
+    }
+  ],
+  "commentaries": [
+    {
+      "id": "1",
+      "at": "1",
+      "by": "2",
+      "comment": "Pariatur cillum cupidatat qui laboris occaecat nulla cupidatat aute consectetur velit. Elit veniam cupidatat nulla officia nisi amet. Ut mollit excepteur fugiat voluptate aute. Cupidatat ipsum fugiat culpa velit mollit ipsum dolore ad aute tempor minim ullamco consectetur. Laborum ipsum aliqua laboris tempor velit est aute magna labore voluptate."
+    }
+  ],
+  "generes": [
+    {
+      "id": "1",
+      "name": "Horror",
+      "used_by": [
+        "1",
+        "2",
+        "3"
       ]
     }
   ]

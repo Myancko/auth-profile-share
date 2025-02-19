@@ -24,7 +24,7 @@ export default function Login() {
     const [d, setD] = useState('');
     const [password, setPassword] = useState('');
 
-    var nameBgImage = ''
+    var nameBgImage : any = ''
     
     if (time.getHours() >= 5 && time.getHours() < 12) {
         nameBgImage = morning
@@ -34,10 +34,10 @@ export default function Login() {
         nameBgImage = night
     }
 
-    const handleImageChange = (event) => {
+    const handleImageChange = (event : any) => {
         const file = event.target.files[0];
         if (file) {
-          const imageUrl = URL.createObjectURL(file);
+          const imageUrl : any = URL.createObjectURL(file);
           console.log(imageUrl, '<<<::')
           setSelectedImage(imageUrl);
         }
@@ -45,14 +45,16 @@ export default function Login() {
 
     const Register = async () => {
 
+        const id = (await axios.get("http://localhost:3000/users")).data.length + 1;
+
         var data = {
-            "id" : await axios.get("http://localhost:3000/users").then(function (response) { return response.data.length + 1 }).toString(),
+            "id" : id.toString(),
             "user": nome || "",
             "description": "", 
             "email": email || "",
             "password": password || "",  
             "data_de_aniversario": d || "",
-            "foto_de_perfil": "", /* n da pra user n jserver */
+            "foto_de_perfil": "https://picsum.photos/200", /* n da pra user n jserver */
             "data_de_criacao_do_registro": new Date().toLocaleDateString(),
             "data_de_atualizacao_do_registro": new Date().toLocaleDateString(),
             "data_de_delecao_do_registro": "", 
@@ -100,7 +102,7 @@ export default function Login() {
                 </div>
                 <SignInput label="Data de Aniversario:" data="4/6/1989" type="text" onChange={setD}/>
                 <SignInput label="Confirme a senha:" data="senhao" type="password" onChange={setPassword}/>
-                <SignInput label="Confirme a senha:" data="senha so q errada" type="password"/>
+                <SignInput label="Confirme a senha:" data="senha so q errada" type="password" onChange={setPassword}/>
                 <div className="flex items-center gap-2">
                     <div className="bg-[#32353c] w-6 flex justify-center rounded-sm p-1 cursor-pointer">
                         <svg stroke="currentColor" fill="currentColor" viewBox="0 0 448 512" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg>

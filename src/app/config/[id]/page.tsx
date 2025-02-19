@@ -1,11 +1,7 @@
 'use client'
 
-import Link from "next/link";
 import Image from "next/image";
-import addCircle from "@/../public/icons/add_circle.svg"
-import edit from "@/../public/icons/edit.svg"
 import noProfilePic from "@/../public/images/user-profile-placeholder.jpg"
-import search from "@/../public/icons/add_circle.svg"
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
@@ -13,38 +9,34 @@ import GameSection from "../../components/game-section";
 import TextInput from "@/app/components/default-text-input";
 import { getCookie } from 'cookies-next';
 import Header from "@/app/components/header";
+import { useParams } from "next/navigation";
 
-export default function ({ params }) {
+export default function ({ params }: { params: { id: string } }){
 
-    const { id } = React.use(params);
-    const [userCoockie, setUserCoockie] = useState(null);
-    const [user, setUser] = useState(null);
-    const [userSections, setUserSections] = useState([]);
+    const { id } = useParams()
+    const [userCoockie, setUserCoockie]:any = useState(null);
+    const [user, setUser] : any = useState(null) ;
+    const [userSections, setUserSections] : any = useState<{ id: string; owner: string; name: string; games: any[] }[]>([]);
     const [allGames, setGames] = useState([]);
-    const [selectedImage, setSelectedImage] = useState(noProfilePic);
-    const [userName, setUserName] = useState(null);
-    const [description, setDescription] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [dataDeAniversario, setDataDeAniversario] = useState(null);
-    const [fotoDePerfil, setFotoDePerfil] = useState(null);
-    const [rua, setRua] = useState(null);
-    const [numero, setNumero] = useState(null);
-    const [complemento, setComplemento] = useState(null);
-    const [bairro, setBairro] = useState(null);
-    const [cidade, setCidade] = useState(null);
-    const [estado, setEstado] = useState(null);
-    const [cep, setCep] = useState(null);
-    const [pais, setPais] = useState(null);
-    const [postComponent, setPostComponent] = useState(false);
+    const [selectedImage, setSelectedImage] : any = useState(noProfilePic);
+    const [userName, setUserName]: any = useState(null);
+    const [description, setDescription] : any = useState(null);
+    const [email, setEmail] : any = useState(null);
+    const [password, setPassword] : any = useState(null);
+    const [dataDeAniversario, setDataDeAniversario] : any = useState(null);
+    const [fotoDePerfil, setFotoDePerfil] : any = useState(null);
+    const [rua, setRua] : any = useState(null);
+    const [numero, setNumero] : any = useState(null);
+    const [complemento, setComplemento] : any = useState(null);
+    const [bairro, setBairro] : any = useState(null);
+    const [cidade, setCidade] : any = useState(null);
+    const [estado, setEstado] : any = useState(null);
+    const [cep, setCep] : any = useState(null);
+    const [pais, setPais] : any = useState(null);
+    const [postComponent, setPostComponent] : any = useState(false);
+    const [imgJserver, setImgJserver] : any = useState(null);
 
-    const [imgJserver, setImgJserver] = useState(null);
-
-    const styleLabels = "font-bold text-xs"
-    const styleInputs = "outline-none rounded-sm p-1 bg-[#4d4d4d] hover:bg-[#666] text-xs"
-    const buttonDefault = "bg-slate-900 w-fit p-2 rounded-xm text-xs"
-
-    const handleImageChange = (event) => {
+    const handleImageChange = (event: any) => {
         const file = event.target.files[0];
         if (file) {
             const imageUrl = URL.createObjectURL(file);
@@ -57,7 +49,7 @@ export default function ({ params }) {
     async function PostUserChanges() {
         var data = {
             "id": id,
-            "user": userName || (user ? user.user : ""),
+            "user": userName || (user ? user.user  : ""),
             "description": description || (user ? user.description : ""),
             "email": email || (user ? user.email : ""),
             "password": password || (user ? user.password : ""),
@@ -90,7 +82,7 @@ export default function ({ params }) {
 
     const addDisplay = () => {
 
-        setUserSections(prevSections => [...prevSections, { id: "-1", owner: id, name:"Display sem nome",games: [] }]
+        setUserSections( (prevSections: any)  => [...prevSections , { id: "-1", owner: id, name:"Display sem nome",games: [] }]
             
         );
     };
@@ -101,7 +93,7 @@ export default function ({ params }) {
         if (!id) return;
         if (!user) {
             const cookie = async () => {
-                const co = await getCookie('user');
+                const co : any = await getCookie('user');
                 JSON.parse(co)
                 setUserCoockie(co);
             } 
@@ -109,15 +101,15 @@ export default function ({ params }) {
             axios.get(`http://localhost:3000/users/${id}`)
                 .then(function (response) {
                     setUser(response.data)
-                    setSelectedImage((prev) => prev === noProfilePic ? response.data.foto_de_perfil || noProfilePic : prev);
+                    setSelectedImage((prev:any) => prev === noProfilePic ? response.data.foto_de_perfil || noProfilePic : prev);
                 })
         }
 
         if (userSections.length === 0) {
             axios.get("http://localhost:3000/displays")
                 .then(function (response) {
-                    let data = [];
-                    response.data.forEach(item => {
+                    let data:any = [];
+                    response.data.forEach((item:any) => {
                         if (item.owner === id) {
                             data.push(item);
                         }
@@ -205,7 +197,7 @@ export default function ({ params }) {
                 </div>
 
                 {
-                    userSections.map((section, index) => (
+                    userSections.map((section: any, index: any) => (
                         <GameSection key={index} display={section} allGames={allGames} post={postComponent} />
                     ))
                 }

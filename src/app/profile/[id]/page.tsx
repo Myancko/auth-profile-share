@@ -9,23 +9,23 @@ import { getCookie } from 'cookies-next';
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 
-export default function Perfil({params}) {
+export default function Perfil({params}: any) {
 
     const value = getCookie('user');
 
-    const { id } = React.use(params);
-    const [userCoockie, setUserCoockie] = useState(null);
-    const [user, setUser] = useState(null);
-    const [userSections, setUserSections] = useState([]);
-    const [allGames, setGames] = useState([]);
+    const { id }: any = React.use(params);
+    const [userCoockie, setUserCoockie] : any = useState(null);
+    const [user, setUser] : any = useState(null);
+    const [userSections, setUserSections] : any = useState([]);
+    const [allGames, setGames] : any = useState([]);
     const getRandomInt = () => 1;
     const imageCount = 3;
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] : any = useState(true);
 
     console.log(value, '<<<<')
 
     const cookie = async () => {
-        const co = await getCookie('user');
+        const co : any = await getCookie('user');
         JSON.parse(co)
         setUserCoockie(co);
     } 
@@ -47,8 +47,8 @@ export default function Perfil({params}) {
             if (userSections.length === 0) {
                 axios.get("http://localhost:3000/displays")
                     .then(function(response) {
-                        let data = [];
-                        response.data.forEach(item => {
+                        let data : any = [];
+                        response.data.forEach((item : any) => {
                             if (item.owner === id) {
                                 data.push(item);
                             }
@@ -125,7 +125,7 @@ export default function Perfil({params}) {
 
                 {/* <div className="bg-black h-0.5 w-full opacity-10"></div> */}
 
-                {userSections.map((section, index) => (
+                {userSections.map((section: any, index: any) => (
                     index ==  0 
                         ?
                         (   <div key={index} className="flex justify-between gap-5 w-full max-w-5xl rounded-sm">
@@ -133,9 +133,9 @@ export default function Perfil({params}) {
                                     <h2  className="p-2 font-bold">{section.name}</h2>
                                     <div className="bg-[#2d0e22] py-3 px-2">
                                         <div className="bg-[#121e17] p-2 grid grid-cols-2 gap-4">
-                                            {section.games.map((gameId, index) => (
+                                            {section.games.map((gameId: any, index: any) => (
                                                 
-                                                allGames.map((game, index) => (
+                                                allGames.map((game: any, index: any) => (
                                                     game.id === gameId 
                                                     ?
                                                         <Image key={gameId} className="max-h-36 w-full rounded-md cursor-pointer" src={game.photo} alt={game.name} width={300} height={175}/>
@@ -168,9 +168,9 @@ export default function Perfil({params}) {
                                     <h2  className="p-2 font-bold">{section.name}</h2>
                                     <div className="bg-[#2d0e22] py-3 px-2">
                                         <div className="bg-[#121e17] p-2 grid grid-cols-2 gap-4">
-                                            {section.games.map((gameId, index) => (
+                                            {section.games.map((gameId : any, index : any) => (
                                                 
-                                                allGames.map((game, index) => (
+                                                allGames.map((game : any, index : any) => (
                                                     game.id === gameId 
                                                     ?
                                                         <Image key={gameId} className="max-h-36 w-full rounded-md cursor-pointer" src={game.photo} alt={game.name} width={300} height={175}/>

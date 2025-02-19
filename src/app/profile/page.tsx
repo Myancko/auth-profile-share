@@ -1,18 +1,15 @@
 "use client"
 
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/navigation'
-import { getCookie } from 'cookies-next';
 import Header from "@/app/components/header";
 
-export default function Perfil({params}) {
+export default function Perfil() {
 
     const router = useRouter()
-    const value = getCookie('user');
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(true);
     

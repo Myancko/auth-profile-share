@@ -1,19 +1,14 @@
 "use client"
 
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useRouter } from 'next/navigation'
-import { getCookie } from 'cookies-next';
 import Header from "@/app/components/header";
 
 export default function Games() {
 
-    const router = useRouter()
-    const value = getCookie('user');
-    const [games, setGames] = useState(null);
+    const [games, setGames] : any = useState(null);
     const [loading, setLoading] = useState(true);
     
 
@@ -51,7 +46,7 @@ export default function Games() {
                     games 
                     ?
                     
-                        games.map((game, index) => {
+                        games.map((game: any, index: any) => {
                             return <div key={index} className="flex flex-col bg-[#404040] hover:bg-[#303030] hover:scale-110 transition cursor-pointer">
                                 <Image className="h-36 w-full rounded-t-md " src={game.photo} width={1200} height={780} alt={game.name + " profile pic"}/>
                                 <p className="text-center font-bold ">{game.name}</p>
