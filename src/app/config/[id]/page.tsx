@@ -5,13 +5,18 @@ import noProfilePic from "@/../public/images/user-profile-placeholder.jpg"
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
-import GameSection from "../../components/game-section";
-import TextInput from "@/app/components/default-text-input";
+import GameSection from "../../components/game-section/game-section";
+import TextInput from "@/app/components/default-text-input/default-text-input";
 import { getCookie } from 'cookies-next';
-import Header from "@/app/components/header";
+import Header from "@/app/components/header/header";
 import { useParams } from "next/navigation";
 
-export default function ({ params }: { params: { id: string } }){
+interface Params {
+    id: string;
+}
+
+
+export default function ({ params }: { params: Promise<Params> }){
 
     const { id } = useParams()
     const [userCoockie, setUserCoockie]:any = useState(null);
@@ -135,7 +140,7 @@ export default function ({ params }: { params: { id: string } }){
 
     }, [id, user]);
 
-    if (user == null) return <p className="text-center mt-10">Carregando...</p>;
+    if (user == null) return ( <p className="text-center mt-10">Carregando...</p> )
     if (id == JSON.parse(userCoockie).id)  return (
         <main className="relative w-screen h-screen overflow-x-hidden">
 
