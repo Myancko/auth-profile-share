@@ -57,7 +57,7 @@ export default function CommentComponent({ at, by, comment, date }: Comment) {
                     <p className="bold text-[#56707f]">{date ? formatDate(date) : "No date"} </p>
                 </div>
                 
-                <p className="text-sm">{comment}</p>
+                <p className="text-sm text-justify">{comment}</p>
              </div>
         </div>
     );

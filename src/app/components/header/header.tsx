@@ -14,7 +14,7 @@ export default function Header() {
         return 
         (
             <div>
-                <p>loading</p>
+                <p>its over ...</p>
             </div>
         )
     }
