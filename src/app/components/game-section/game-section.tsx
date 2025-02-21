@@ -187,7 +187,7 @@ export default function GameSection({ display, allGames, post = false }: GameSec
                                     <div className="p-2 grid grid-cols-2 gap-4 max-h-80 overflow-y-scroll">
 
                                         {
-                                            allGames.map((game, index) => (
+                                            allGames.map((game:any, index:any) => (
                                                 <Image className={` rounded-md ${addList.includes(game.id) ?  "ring-2 ring-[#96ff93]/50" : ""}`} key={index} src={game.photo} alt={"Game: " + game.title} width={1200} height={780} 
                                                 onClick={() => AddGame(game.id)} />
                                             ))

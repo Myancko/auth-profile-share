@@ -5,37 +5,37 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from 'next/navigation'
-import Header from "@/app/components/header";
+import Header from "@/app/components/header/header";
 
 export default function Perfil() {
 
     const router = useRouter()
-    const [users, setUsers] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [users, setUsers] :any = useState(null);
     
 
     useEffect(() => {
 
-        if (loading == true)
-        {
-            if(!users)(
-                axios.get(`http://localhost:3000/users`)
-                .then(function(response){
-                    /* console.log(response.data, "<<<") */
-                    setUsers(response.data) 
-                })  
-            ) 
+        const GetUsers = async () =>  {
+            await axios.get(`http://localhost:3000/users`)
+            .then(function(response){
+                /* console.log(response.data, "<<<") */
+                setUsers(response.data) 
+            }).catch(function(error) {
+                console.error("Erro ao buscar jogos:", error);
+            });
         }
+        GetUsers()
         
-        setLoading(false)
-      });
+      },[]);
 
     
     if (users == null) 
-        return <main className={'w-screen h-screen flex flex-col items-center justify-center'}>
-            <Header/>
-            <p className="text-center mt-10">Carregando... {users} a </p>;
-        </main>
+        return ( 
+            <main className={'w-screen h-screen flex flex-col items-center justify-center'}>
+                <Header/>
+                <p className="text-center mt-10">Carregando... {users} a </p>;
+            </main>
+        )
 
     return (
         <main className={'w-screen h-screen'}>
@@ -48,7 +48,7 @@ export default function Perfil() {
                     users 
                     ?
                     
-                        users.map((user, index) => {
+                        users.map((user:any, index:any) => {
                             return <div key={index} className="flex flex-col rounded-t-md bg-[#404040] hover:bg-[#303030] hover:scale-110 transition cursor-pointer" onClick={() => (router.push("profile/"+user.id))}>
                                 <Image className="h-36 rounded-t-md " src={user.foto_de_perfil} width={1200} height={780} alt={user.name + " profile pic"}/>
                                 <p className="text-center font-bold ">{user.user}</p>

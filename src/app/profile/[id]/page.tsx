@@ -6,21 +6,24 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getCookie } from 'cookies-next';
-import Header from "@/app/components/header";
-import Footer from "@/app/components/footer";
+import Header from "@/app/components/header/header";
+import Footer from "@/app/components/footer/footer";
+import CommentComponent from "@/app/components/comment/comment-comp";
 
 export default function Perfil({params}: any) {
 
-    const value = getCookie('user');
+    const value : any = getCookie('user');
 
     const { id }: any = React.use(params);
     const [userCoockie, setUserCoockie] : any = useState(null);
     const [user, setUser] : any = useState(null);
     const [userSections, setUserSections] : any = useState([]);
     const [allGames, setGames] : any = useState([]);
+    const [allComments, setAllComments] : any = useState([]);
     const getRandomInt = () => 1;
     const imageCount = 3;
     const [loading, setLoading] : any = useState(true);
+    const [comment, setComment] : any = useState("");
 
     console.log(value, '<<<<')
 
@@ -29,6 +32,37 @@ export default function Perfil({params}: any) {
         JSON.parse(co)
         setUserCoockie(co);
     } 
+
+    const Post  = async ()  =>
+    {
+        const res = await axios.get("http://localhost:3000/commentaries")
+        const data = {
+            "id" : res.data.length + 1,
+            "at" : id.toString(),
+            "by" : JSON.parse(value).id,
+            "comment" : comment,
+            "date" : Date.now()
+        }
+
+        try {
+            await axios.post("http://localhost:3000/commentaries", data);
+        } catch (error) {
+            console.error("Error posting commentary:", error);
+        }
+
+        setComment(""); // Reset comment input
+            fetchComments(); // Refresh comments after posting
+    }
+
+    const fetchComments = () => {
+        axios.get("http://localhost:3000/commentaries")
+            .then(function(response) {
+                setAllComments(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching comments:", error);
+            });
+    };
 
     useEffect(() => {
 
@@ -42,6 +76,10 @@ export default function Perfil({params}: any) {
                     /* console.log(response.data, "<<<") */
                     setUser(response.data) 
                 })  
+            }
+
+            if (allComments.length === 0) {
+                fetchComments(); // Fetch comments when initially loading
             }
         
             if (userSections.length === 0) {
@@ -75,12 +113,12 @@ export default function Perfil({params}: any) {
         }
         
         setLoading(false)
-      });
+      },[loading]);
 
       
 
     if (user == null) 
-        return <p className="text-center mt-10">Carregando...</p>;
+        return (<p className="text-center mt-10">Carregando...</p>) 
 
     return (
         <main className={'w-screen h-screen'}>
@@ -194,92 +232,41 @@ export default function Perfil({params}: any) {
                        <div className="bg-[#2d0e22] py-3 px-2 flex gap-2">
                             <div  className="bg-[#555555] p-0.5 w-fit h-fit">
                                 <Image className="max-w-12 max-h-12 rounded-sm "  
-                                        src={`/icons/f113017b004bd1b1467a84a7d7a2199a1dc662f3.png`} // Different random int for each image
+                                        src={value ? JSON.parse(value).foto_de_perfil :  `/icons/f113017b004bd1b1467a84a7d7a2199a1dc662f3.png`} // Different random int for each image
                                         alt={`...`}
                                         width={50}
                                         height={50}/>
                             </div>
-                            <div>
-                                <div className="flex gap-2">
-                                    <h2 className="font-bold">Reprehenderit sunt</h2>
-                                    <p className="bold text-[#56707f]">3/jan./2021 às 5:56 </p>
-                                </div>
-                                
-                                <p className="text-sm">Pariatur cillum cupidatat qui laboris occaecat nulla cupidatat aute consectetur velit. Elit veniam cupidatat nulla officia nisi amet. Ut mollit excepteur fugiat voluptate aute. Cupidatat ipsum fugiat culpa velit mollit ipsum dolore ad aute tempor minim ullamco consectetur. Laborum ipsum aliqua laboris tempor velit est aute magna labore voluptate.</p>
+                            <div className="w-full">
+                               <textarea value={comment} onChange={e => (setComment(e.target.value))} className="w-full p-1  rounded-sm resize-none outline-none bg-gray-700" name="" id="" placeholder="Adicione o seu commentario"></textarea>
+                                {
+                                    comment.length > 0 
+                                    ? 
+                                    <div className="flex justify-end ">
+                                        <button onClick={Post} className="self-end p-1 rounded-sm hover:bg-green-600 bg-green-400" >Enviar</button>
+                                    </div>
+                                    :
+                                    ""
+                                }
                             </div>
                        </div>
 
-                       <div className="bg-[#2d0e22] py-3 px-2 flex gap-2">
-                            <div  className="bg-[#555555] p-0.5 w-fit h-fit">
-                                <Image className="max-w-12 max-h-12 rounded-sm "  
-                                        src={`/icons/894be2d9dd6a2444ca8776bbb7047f579d2e9763.png`} // Different random int for each image
-                                        alt={``}
-                                        width={50}
-                                        height={50}/>
-                            </div>
-                            <div>
-                                <div className="flex gap-2">
-                                    <h2 className="font-bold">Reprehenderit sunt</h2>
-                                    <p className="bold text-[#56707f]">3/jan./2021 às 5:56 </p>
-                                </div>
-                                
-                                <p className="text-sm">Pariatur cillum cupidatat qui laboris occaecat nulla cupidatat aute consectetur velit. Elit veniam cupidatat nulla officia nisi amet. Ut mollit excepteur fugiat voluptate aute. Cupidatat ipsum fugiat culpa velit mollit ipsum dolore ad aute tempor minim ullamco consectetur. Laborum ipsum aliqua laboris tempor velit est aute magna labore voluptate.</p>
-                            </div>
-                       </div>
+                       {
+                            allComments ? (
+                                allComments.map((comment:any, index:any) => {
+                                    
+                                    if (comment.at == id)
+                                    {
 
-                       <div className="bg-[#2d0e22] py-3 px-2 flex gap-2">
-                            <div  className="bg-[#555555] p-0.5 w-fit h-fit">
-                                <Image className="max-w-12 max-h-12 rounded-sm "  
-                                        src={`/icons/398f1a66a106c01cb1b33533c7cf4724b2ece172.png`} // Different random int for each image
-                                        alt={``}
-                                        width={50}
-                                        height={50}/>
-                            </div>
-                            <div>
-                                <div className="flex gap-2">
-                                    <h2 className="font-bold">Reprehenderit sunt</h2>
-                                    <p className="bold text-[#56707f]">3/jan./2021 às 5:56 </p>
-                                </div>
-                                
-                                <p className="text-sm">Pariatur cillum cupidatat qui laboris occaecat nulla cupidatat aute consectetur velit. Elit veniam cupidatat nulla officia nisi amet. Ut mollit excepteur fugiat voluptate aute. Cupidatat ipsum fugiat culpa velit mollit ipsum dolore ad aute tempor minim ullamco consectetur. Laborum ipsum aliqua laboris tempor velit est aute magna labore voluptate.</p>
-                            </div>
-                       </div>
-
-                       <div className="bg-[#2d0e22] py-3 px-2 flex gap-2">
-                            <div  className="bg-[#555555] p-0.5 w-fit h-fit">
-                                <Image className="max-w-12 max-h-12 rounded-sm "  
-                                        src={`/icons/00f7fa80ca60801cc800753f910fcd0c822d4df8.png`} // Different random int for each image
-                                        alt={``}
-                                        width={50}
-                                        height={50}/>
-                            </div>
-                            <div>
-                                <div className="flex gap-2">
-                                    <h2 className="font-bold">Reprehenderit sunt</h2>
-                                    <p className="bold text-[#56707f]">3/jan./2021 às 5:56 </p>
-                                </div>
-                                
-                                <p className="text-sm">Pariatur cillum cupidatat qui laboris occaecat nulla cupidatat aute consectetur velit. Elit veniam cupidatat nulla officia nisi amet. Ut mollit excepteur fugiat voluptate aute. Cupidatat ipsum fugiat culpa velit mollit ipsum dolore ad aute tempor minim ullamco consectetur. Laborum ipsum aliqua laboris tempor velit est aute magna labore voluptate.</p>
-                            </div>
-                       </div>
-
-                       <div className="bg-[#2d0e22] py-3 px-2 flex gap-2">
-                            <div  className="bg-[#555555] p-0.5 w-fit h-fit">
-                                <Image className="max-w-12 max-h-12 rounded-sm "  
-                                        src={`/icons/a891af99164d0b2ce5a58c536e8dc3aaeb0b362e.png`} // Different random int for each image
-                                        alt={``}
-                                        width={50}
-                                        height={50}/>
-                            </div>
-                            <div>
-                                <div className="flex gap-2">
-                                    <h2 className="font-bold">Reprehenderit sunt</h2>
-                                    <p className="bold text-[#56707f]">3/jan./2021 às 5:56 </p>
-                                </div>
-                                
-                                <p className="text-sm">Pariatur cillum cupidatat qui laboris occaecat nulla cupidatat aute consectetur velit. Elit veniam cupidatat nulla officia nisi amet. Ut mollit excepteur fugiat voluptate aute. Cupidatat ipsum fugiat culpa velit mollit ipsum dolore ad aute tempor minim ullamco consectetur. Laborum ipsum aliqua laboris tempor velit est aute magna labore voluptate.</p>
-                            </div>
-                       </div>
+                                        return (
+                                            <CommentComponent key={index} at={comment.at} by={comment.by} comment={comment.comment} date={comment.date ? comment.date : ""}/>
+                                        );
+                                    }
+                                })
+                            ) : (
+                                <p>No comments available</p>
+                            )
+                        }
                     </div>
 
                 </div>

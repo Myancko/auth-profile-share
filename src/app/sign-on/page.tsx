@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import SignInput from "../components/sign-inputs";
+import SignInput from "../components/sign-inputs/sign-inputs";
 import { useState } from "react";
 import noProfilePic from "@/../public/images/user-profile-placeholder.jpg"
 import axios from "axios";
@@ -12,9 +12,7 @@ import morning from "@/../public/images/morning.png"
 import evening from "@/../public/images/evening.jpg"
 import night from "@/../public/images/night.jpg"
 
-
 export default function Login() {
-
 
     const [selectedImage, setSelectedImage] = useState(noProfilePic);
     const time = new Date()
@@ -45,7 +43,15 @@ export default function Login() {
 
     const Register = async () => {
 
-        const id = (await axios.get("http://localhost:3000/users")).data.length + 1;
+        let id = 1;
+
+        try {
+            const response = await axios.get("http://localhost:3000/users");
+            id = response.data.length + 1;
+        } catch (error) {
+            console.error("Erro ao buscar usuários:", error);
+            return error
+        }
 
         var data = {
             "id" : id.toString(),

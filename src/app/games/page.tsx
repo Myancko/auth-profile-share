@@ -4,39 +4,44 @@ import Image from "next/image";
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "@/app/components/header";
+import Header from "@/app/components/header/header";
 
 export default function Games() {
 
-    const [games, setGames] : any = useState(null);
-    const [loading, setLoading] = useState(true);
-    
+    const [games, setGames]= useState<any>(null);
 
     useEffect(() => {
 
-        if (loading == true)
-        {
-            if(!games)(
-                axios.get(`http://localhost:3000/games`)
-                .then(function(response){
-                    /* console.log(response.data, "<<<") */
-                    setGames(response.data) 
-                })  
-            ) 
+        async function GetGames() {
+            axios.get(`http://localhost:3000/games`).then(function(response)
+            {
+                setGames(response.data) 
+            }).catch(function(error) {
+                console.error("Erro ao buscar jogos:", error);
+                setGames(null)
+            });
         }
-        
-        setLoading(false)
-      });
+        GetGames()
+      }, []);
 
     
-    if (games == null) 
-        return <main className={'w-screen h-screen flex flex-col items-center justify-center'}>
-            <Header/>
-            <p className="text-center mt-10">Carregando...</p>;
-        </main>
+    if (games == null)  
+        return ( 
+            <main className={'w-screen h-screen flex flex-col items-center justify-center'}>
+                <Header/>
+                <p className="text-center mt-10">It is carregando...</p>;
+            </main>
+        )
+    if (games.length == 0)  
+        return ( 
+            <main className={'w-screen h-screen flex flex-col items-center justify-center'}>
+                <Header/>
+                <p className="text-center mt-10">It is carregando...</p>;
+            </main>
+        )
 
     return (
-        <main className={'w-screen h-screen'}>
+        <div className={'w-screen h-screen'}>
 
             <Header/>
             
@@ -47,7 +52,7 @@ export default function Games() {
                     ?
                     
                         games.map((game: any, index: any) => {
-                            return <div key={index} className="flex flex-col bg-[#404040] hover:bg-[#303030] hover:scale-110 transition cursor-pointer">
+                            return <div key={index} className="flex flex-col bg-[#404040] hover:bg-[#303030] hover:scale-110 transition">
                                 <Image className="h-36 w-full rounded-t-md " src={game.photo} width={1200} height={780} alt={game.name + " profile pic"}/>
                                 <p className="text-center font-bold ">{game.name}</p>
                             </div>
@@ -58,6 +63,6 @@ export default function Games() {
                 }
 
             </section>
-        </main>
+        </div>
     );
 }

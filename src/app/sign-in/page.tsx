@@ -18,7 +18,7 @@
         const [login, setLogin] = useState('');
         const [password, setPassword] = useState('');
         const time = new Date()
-        var nameBgImage : any
+        var nameBgImage : any   
 
         if (time.getHours() >= 5 && time.getHours() < 12) {
             nameBgImage = morning
