@@ -175,6 +175,72 @@
         "cep": "sadsad",
         "pais": "dsad"
       }
+    },
+    {
+      "id": "9",
+      "user": "oi",
+      "description": "",
+      "email": "dsdsadsadsasa",
+      "password": "12345",
+      "data_de_aniversario": "sadsad",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "2/28/2025",
+      "data_de_atualizacao_do_registro": "2/28/2025",
+      "data_de_delecao_do_registro": "none",
+      "dados_do_endereco_completo": {
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": "",
+        "cep": "",
+        "pais": ""
+      }
+    },
+    {
+      "id": "10",
+      "user": "t final",
+      "description": "aaaaaaaaaaa",
+      "email": "sadsadsad",
+      "password": "123",
+      "data_de_aniversario": "sadsadsadsad",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "2/28/2025",
+      "data_de_atualizacao_do_registro": "2/28/2025",
+      "data_de_delecao_do_registro": "none",
+      "dados_do_endereco_completo": {
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": "",
+        "cep": "",
+        "pais": ""
+      }
+    },
+    {
+      "id": "11",
+      "user": "the last teste",
+      "description": "dsadsaasdsaad",
+      "email": "sadadsadsadsd",
+      "password": "1234",
+      "data_de_aniversario": "sadsadsad",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "2/28/2025",
+      "data_de_atualizacao_do_registro": "2/28/2025",
+      "data_de_delecao_do_registro": "none",
+      "dados_do_endereco_completo": {
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": "",
+        "cep": "",
+        "pais": ""
+      }
     }
   ],
   "games": [
@@ -220,22 +286,18 @@
     },
     {
       "id": "2",
-      "owner": "1",
-      "name": "Platinados 2",
+      "owner": "9",
+      "name": "Display sem nome",
       "games": [
-        "4",
-        "3",
         "2"
       ]
     },
     {
       "id": "3",
-      "owner": "1",
-      "name": "teste",
+      "owner": "9",
+      "name": "a final  ",
       "games": [
-        "4",
-        "2",
-        "1",
+        "6",
         "3"
       ]
     },
@@ -351,6 +413,239 @@
         "5",
         "4"
       ]
+    },
+    {
+      "id": "17",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": [
+        "1",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "19",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "20",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "21",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "22",
+      "name": "teste ",
+      "owner": "9",
+      "games": [
+        "3",
+        "6",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "id": "23",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": [
+        "4",
+        "5"
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": [
+        "2"
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": [
+        "6",
+        "5",
+        "4",
+        "3"
+      ]
+    },
+    {
+      "id": "26",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "26",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "28",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": [
+        "2",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "id": "29",
+      "name": "a final  ",
+      "owner": "9",
+      "games": [
+        "6",
+        "3"
+      ]
+    },
+    {
+      "id": "30",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": [
+        "1",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "id": "31",
+      "name": "a",
+      "owner": "9",
+      "games": [
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "32",
+      "name": "aaaaaaaa",
+      "owner": "9",
+      "games": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ]
+    },
+    {
+      "id": "33",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "34",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": [
+        "5",
+        "4",
+        "1"
+      ]
+    },
+    {
+      "id": "35",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "36",
+      "name": "teste",
+      "owner": "9",
+      "games": []
+    },
+    {
+      "id": "37",
+      "name": "teste",
+      "owner": "9",
+      "games": [
+        "3",
+        "2"
+      ]
+    },
+    {
+      "id": "38",
+      "name": "Display sem nome",
+      "owner": "9",
+      "games": [
+        "5",
+        "4"
+      ]
+    },
+    {
+      "id": "39",
+      "name": "aaaaaaaa",
+      "owner": "9",
+      "games": [
+        "3",
+        "2"
+      ]
+    },
+    {
+      "id": "40",
+      "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "owner": "9",
+      "games": [
+        "3",
+        "2"
+      ]
+    },
+    {
+      "id": "41",
+      "name": "work please",
+      "owner": "9",
+      "games": [
+        "2"
+      ]
+    },
+    {
+      "id": "42",
+      "name": "ww",
+      "owner": "9",
+      "games": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "43",
+      "name": "test",
+      "owner": "10",
+      "games": [
+        "2"
+      ]
+    },
+    {
+      "id": "44",
+      "name": "t final seja oq for q sera",
+      "owner": "11",
+      "games": [
+        "2",
+        "3"
+      ]
     }
   ],
   "commentaries": [
@@ -361,224 +656,252 @@
       "comment": "Pariatur cillum cupidatat qui laboris occaecat nulla cupidatat aute consectetur velit. Elit veniam cupidatat nulla officia nisi amet. Ut mollit excepteur fugiat voluptate aute. Cupidatat ipsum fugiat culpa velit mollit ipsum dolore ad aute tempor minim ullamco consectetur. Laborum ipsum aliqua laboris tempor velit est aute magna labore voluptate."
     },
     {
-      "id": 2,
+      "id": "2",
       "at": "8",
       "by": "8",
       "comment": "t"
     },
     {
-      "id": 2,
+      "id": "2",
       "at": "8",
       "by": "8",
       "comment": "t"
     },
     {
-      "id": 2,
+      "id": "2",
       "at": "8",
       "by": "8",
       "comment": "t"
     },
     {
-      "id": 2,
+      "id": "2",
       "at": "8",
       "by": "8",
       "comment": "t"
     },
     {
-      "id": 6,
+      "id": "6",
       "at": "8",
       "by": "8",
       "comment": "te"
     },
     {
-      "id": 6,
+      "id": "6",
       "at": "8",
       "by": "8",
       "comment": "te"
     },
     {
-      "id": 6,
+      "id": "6",
       "at": "8",
       "by": "8",
       "comment": "te"
     },
     {
-      "id": 6,
+      "id": "6",
       "at": "8",
       "by": "8",
       "comment": "te"
     },
     {
-      "id": 10,
+      "id": "10",
       "at": "8",
       "by": "8",
       "comment": "tes"
     },
     {
-      "id": 10,
+      "id": "10",
       "at": "8",
       "by": "8",
       "comment": "tes"
     },
     {
-      "id": 10,
+      "id": "10",
       "at": "8",
       "by": "8",
       "comment": "tes"
     },
     {
-      "id": 10,
+      "id": "10",
       "at": "8",
       "by": "8",
       "comment": "tes"
     },
     {
-      "id": 14,
+      "id": "14",
       "at": "8",
       "by": "8",
       "comment": "test"
     },
     {
-      "id": 14,
+      "id": "14",
       "at": "8",
       "by": "8",
       "comment": "test"
     },
     {
-      "id": 14,
+      "id": "14",
       "at": "8",
       "by": "8",
       "comment": "test"
     },
     {
-      "id": 14,
+      "id": "14",
       "at": "8",
       "by": "8",
       "comment": "test"
     },
     {
-      "id": 18,
+      "id": "18",
       "at": "8",
       "by": "8",
       "comment": "teste"
     },
     {
-      "id": 18,
+      "id": "18",
       "at": "8",
       "by": "8",
       "comment": "teste"
     },
     {
-      "id": 18,
+      "id": "18",
       "at": "8",
       "by": "8",
       "comment": "teste"
     },
     {
-      "id": 18,
+      "id": "18",
       "at": "8",
       "by": "8",
       "comment": "teste"
     },
     {
-      "id": 22,
+      "id": "22",
       "at": "8",
       "by": "8",
       "comment": "teste"
     },
     {
-      "id": 23,
+      "id": "23",
       "at": "8",
       "by": "8",
       "comment": "teste"
     },
     {
-      "id": 24,
+      "id": "24",
       "at": "8",
       "by": "8",
       "comment": "teste"
     },
     {
-      "id": 25,
+      "id": "25",
       "at": "8",
       "by": "8",
       "comment": "teste agr"
     },
     {
-      "id": 26,
+      "id": "26",
       "at": "1",
       "by": "8",
       "comment": "mt gay kkkkkkkkk"
     },
     {
-      "id": 26,
+      "id": "26",
       "at": "1",
       "by": "8",
       "comment": "mt gay kkkkkkkkk",
       "date": ""
     },
     {
-      "id": 28,
+      "id": "28",
       "at": "1",
       "by": "8",
       "comment": "aaaaaaaaa",
       "date": 1740096661055
     },
     {
-      "id": 29,
+      "id": "29",
       "at": "1",
       "by": "8",
       "comment": "asdas",
       "date": 1740096711467
     },
     {
-      "id": 30,
+      "id": "30",
       "at": "1",
       "by": "8",
       "comment": "dsadsad",
       "date": 1740096772330
     },
     {
-      "id": 31,
+      "id": "31",
       "at": "1",
       "by": "8",
       "comment": "teste",
       "date": 1740096786583
     },
     {
-      "id": 32,
+      "id": "32",
       "at": "1",
       "by": "8",
       "comment": "agr vai\n",
       "date": 1740096823057
     },
     {
-      "id": 33,
+      "id": "33",
       "at": "1",
       "by": "8",
       "comment": "sadsad",
       "date": 1740096851051
     },
     {
-      "id": 34,
+      "id": "34",
       "at": "1",
       "by": "8",
       "comment": "teeeeeeeste",
       "date": 1740097052425
     },
     {
-      "id": 35,
+      "id": "35",
       "at": "1",
       "by": "8",
       "comment": "aaaaaaaa",
       "date": 1740097056316
     },
     {
-      "id": 36,
+      "id": "36",
       "at": "4",
       "by": "8",
       "comment": "ruim zão kkkk\n",
       "date": 1740097505314
+    },
+    {
+      "id": "37",
+      "at": "9",
+      "by": "9",
+      "comment": "teste\n",
+      "date": 1740776519716
+    },
+    {
+      "id": "38",
+      "at": "9",
+      "by": "9",
+      "comment": "esqueci de bota sa foto mudando as cara ta td igual :<",
+      "date": 1740776559938
+    },
+    {
+      "id": "39",
+      "at": "10",
+      "by": "10",
+      "comment": "adsadas",
+      "date": 1740781565512
+    },
+    {
+      "id": 40,
+      "at": "11",
+      "by": "11",
+      "comment": "aaaaaaaaaaaa",
+      "date": 1740782425998
     }
   ],
   "generes": [

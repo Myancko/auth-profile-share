@@ -57,20 +57,20 @@ export default function GameSection({ display, allGames, post = false }: GameSec
 
                 data = {
                     "id"  : String(display.id.length + 1),
-                    "name": display.name,
+                    "name": displayState.name,
                     "owner" : JSON.parse(userCoockie).id,
                     "games": addList
                 }
 
-                axios.post("http://localhost:3000/displays" , data)
+                await axios.post("http://localhost:3000/displays" , data)
                 .then(response => router.push("http://localhost:3001/config/" + JSON.parse(userCoockie).id )).then(async () => {
-
+                    
                     const response = await axios.get("http://localhost:3000/displays/" + data.id)
                     console.log(response.data,  response,  "<<<<");
                     setDisplayState(response.data)
                     setNameForBeforeUpdate(response.data.name)
-                    if (post  == true)
-                        window.location.reload();
+                    /* if (post  == true)
+                        window.location.reload(); */
 
                 })
                 .catch(error => {
@@ -93,9 +93,33 @@ export default function GameSection({ display, allGames, post = false }: GameSec
                         window.location.reload();
                 })
                 .catch(error => {
-                    if (error.response) {
-                        console.error("erro no patch", error.response.data);
+
+                    try {
+
+                    axios.patch("http://localhost:3000/displays/" + String(display.id.length + 1), data)
+                    .then(response => router.push("http://localhost:3001/config/" + JSON.parse(userCoockie).id)).then(async () => {
+                        window.location.reload();
+                        const response = await axios.get("http://localhost:3000/displays/" + String(display.id.length + 1))
+                        console.log(response.data,  response,  "<<<<");
+                        setDisplayState(response.data)
+                        setNameForBeforeUpdate(response.data.name)  
+   
+                    })
+
+                    }catch
+                    {
+                        if (error.response) {
+                            console.log(
+                                error.response.data,"<  erro",
+                                data,"<  data",
+                                display.id,"< id",
+                                display.id+1,"<  id + 1", "<<<<<<<<<<<<<<<<<<<<<<<<<<"),
+                                "patch url: ", "http://localhost:3000/displays/" + display.id
+                            console.error("erro no patch", error.response.data);
+                        }
                     }
+                    
+                    
                 });
                 
         }

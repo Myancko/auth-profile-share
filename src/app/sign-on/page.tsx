@@ -117,7 +117,7 @@ export default function Login() {
                 </div>
                 
                 <div className="w-full">
-                    <Link href="/sign-in" className="">já possui uma conta?</Link>
+                    <Link href="/sign-in" className="hover:text-blue-400">já possui uma conta?</Link>
                     <div onClick={() => Register()} className="text-center bg-blue-400 hover:bg-blue-300 cursor-pointer max-w-64 py-2 m-auto rounded-sm">Iniciar sessão</div>
                 </div>
                 {/* <Link href="" className="underline text-center mt-4">Não consigo iniciar a sessão</Link> */}

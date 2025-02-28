@@ -77,7 +77,7 @@
                     </div>
                     
                     <div className="w-full">
-                        <Link href={"/sign-on"}><p className="">Não possui uma conta?</p></Link>
+                        <Link href={"/sign-on"}><p className="hover:text-blue-400">Não possui uma conta?</p></Link>
                         <div onClick={Login} className="text-center bg-blue-400 hover:bg-blue-300 cursor-pointer max-w-64 py-2 m-auto rounded-sm">Iniciar sessão</div>
                     </div>
                     {/* <Link href="" className="underline text-center mt-4">Não consigo iniciar a sessão</Link> */}
