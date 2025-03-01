@@ -3,12 +3,17 @@
 import Image from "next/image";
 import addCircle from "@/../public/icons/add_circle.svg"
 import edit from "@/../public/icons/edit.svg"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useRouter } from 'next/navigation';
 import React from "react";
 import imageIcon from "@/../public/icons/image.svg"
 import axios from "axios";
 import { getCookie } from 'cookies-next';
+import { GameSectionContext } from "@/app/config/[id]/gameSectionContext";
+
+/* 
+
+was used befores the context
 
 interface Game {
     id: number;
@@ -27,13 +32,18 @@ interface GameSectionProps {
     display: Display;
     allGames: Game[];
     post?: boolean;
-}
+} */
 
-export default function GameSection({ display, allGames, post = false }: GameSectionProps) {
+export default function GameSection() {
 
+
+    const { display, allGames, post } = useContext(GameSectionContext);
+
+    const [postState, setPostState] = useState(post);
+    
     const userCoockie:any = getCookie('user');
     const [showCreateGameModal, setShowCreateGameModal] = useState(false);
-    const [addList, setAddList] = useState(display ? display.games : []);
+    const [addList, setAddList] = useState<any[]>(display ? display.games : []);
     const [change, setChange] = useState(false);
     const router = useRouter()
     const [displayState, setDisplayState] = useState(display);
@@ -64,7 +74,7 @@ export default function GameSection({ display, allGames, post = false }: GameSec
 
                 await axios.post("http://localhost:3000/displays" , data)
                 .then(response => router.push("http://localhost:3001/config/" + JSON.parse(userCoockie).id )).then(async () => {
-                    
+                    setChange(false)
                     const response = await axios.get("http://localhost:3000/displays/" + data.id)
                     console.log(response.data,  response,  "<<<<");
                     setDisplayState(response.data)
@@ -89,7 +99,8 @@ export default function GameSection({ display, allGames, post = false }: GameSec
                     console.log(response.data,  response,  "<<<<");
                     setDisplayState(response.data)
                     setNameForBeforeUpdate(response.data.name)  
-                    if (post  == true)
+                    setChange(false)
+                    if (postState  == true)
                         window.location.reload();
                 })
                 .catch(error => {
@@ -98,16 +109,17 @@ export default function GameSection({ display, allGames, post = false }: GameSec
 
                     axios.patch("http://localhost:3000/displays/" + String(display.id.length + 1), data)
                     .then(response => router.push("http://localhost:3001/config/" + JSON.parse(userCoockie).id)).then(async () => {
-                        window.location.reload();
-                        const response = await axios.get("http://localhost:3000/displays/" + String(display.id.length + 1))
+                        setChange(false)
+                        /* const response = await axios.get("http://localhost:3000/displays/" + String(display.id.length + 1))
                         console.log(response.data,  response,  "<<<<");
                         setDisplayState(response.data)
-                        setNameForBeforeUpdate(response.data.name)  
+                        setNameForBeforeUpdate(response.data.name)   */
    
                     })
 
                     }catch
                     {
+                        setChange(false)
                         if (error.response) {
                             console.log(
                                 error.response.data,"<  erro",
@@ -129,15 +141,15 @@ export default function GameSection({ display, allGames, post = false }: GameSec
     
     useEffect(() => {
 
-        if (post == true)
+        if (postState == true)
         {
             console.log('component reload')
             addGameToSection()
             setChange(false)
-            post = false
+            setPostState(false) 
         }
             
-        }, [post]);
+        }, [postState]);
 
     return (
         <>
@@ -160,8 +172,8 @@ export default function GameSection({ display, allGames, post = false }: GameSec
                             {
                                     displayState 
                                     ? 
-                                    displayState.games.map( (gameId:any, _) => (
-                                        allGames.map((game, index) => (
+                                    displayState.games.map( (gameId:any, _:any) => (
+                                        allGames.map((game:any, index:any) => (
 
                                             game.id == gameId  
                                             ?   

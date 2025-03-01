@@ -241,6 +241,28 @@
         "cep": "",
         "pais": ""
       }
+    },
+    {
+      "id": "12",
+      "user": "teste",
+      "description": "",
+      "email": "sadsadass",
+      "password": "1234",
+      "data_de_aniversario": "asdsadsad",
+      "foto_de_perfil": "https://picsum.photos/200",
+      "data_de_criacao_do_registro": "3/1/2025",
+      "data_de_atualizacao_do_registro": "3/1/2025",
+      "data_de_delecao_do_registro": "",
+      "dados_do_endereco_completo": {
+        "rua": "",
+        "numero": "",
+        "complemento": "",
+        "bairro": "",
+        "cidade": "",
+        "estado": "",
+        "cep": "",
+        "pais": ""
+      }
     }
   ],
   "games": [
@@ -640,8 +662,59 @@
     },
     {
       "id": "44",
-      "name": "t final seja oq for q sera",
+      "name": "",
       "owner": "11",
+      "games": [
+        "2",
+        "3",
+        "6",
+        "5"
+      ]
+    },
+    {
+      "id": "45",
+      "name": "teste ",
+      "owner": "12",
+      "games": [
+        "1"
+      ]
+    },
+    {
+      "id": "46",
+      "name": "aaaaaaaa",
+      "owner": "12",
+      "games": []
+    },
+    {
+      "id": "47",
+      "name": "teste 2",
+      "owner": "12",
+      "games": [
+        "4",
+        "2"
+      ]
+    },
+    {
+      "id": "48",
+      "name": "teste 3",
+      "owner": "12",
+      "games": [
+        "2"
+      ]
+    },
+    {
+      "id": "49",
+      "name": "teste",
+      "owner": "12",
+      "games": [
+        "4",
+        "2"
+      ]
+    },
+    {
+      "id": "50",
+      "name": "teste-final",
+      "owner": "12",
       "games": [
         "2",
         "3"
@@ -897,7 +970,7 @@
       "date": 1740781565512
     },
     {
-      "id": 40,
+      "id": "40",
       "at": "11",
       "by": "11",
       "comment": "aaaaaaaaaaaa",

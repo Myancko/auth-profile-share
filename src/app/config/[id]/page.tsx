@@ -10,6 +10,7 @@ import TextInput from "@/app/components/default-text-input/default-text-input";
 import { getCookie } from 'cookies-next';
 import Header from "@/app/components/header/header";
 import { useParams } from "next/navigation";
+import { GameSectionContext } from "./gameSectionContext";
 
 interface Params {
     id: string;
@@ -203,7 +204,9 @@ export default function ({ params }: { params: Promise<Params> }){
 
                 {
                     userSections.map((section: any, index: any) => (
-                        <GameSection key={index} display={section} allGames={allGames} post={postComponent} />
+                        <GameSectionContext.Provider key={index} value={{ display: section, allGames, post: postComponent }} >
+                            <GameSection key={index} />
+                        </GameSectionContext.Provider>
                     ))
                 }
 
